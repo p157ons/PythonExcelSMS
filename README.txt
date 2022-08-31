@@ -1,4 +1,5 @@
-
+Aplikacja do masowej wysyłki sms-ów z komputera przy użyciu apliakcji AirMore na androida oraz języka python.
+Wystarczy pobrać aplikację na telefon, przygotować plik excel z spersonalizowanymi sms-ami i numerami po czym właczyć plik .py i postępować zgodnie z komunikatami.
 How to start:
 
 ###[Computer]###

@@ -13,7 +13,6 @@ def openFile():
   return filepath_function
 
 
-openFile()
 set_ip = input("Set IP of Phone [Check in Airmore app] in format: 192.168.1.10: " )
 ip = IPv4Address(set_ip)  # whatever server's address is
 session = AirmoreSession(ip)  # port is default to 2333
@@ -37,7 +36,6 @@ while loop_variable == 1:
 
         break
     
-    #filepath = "C:\\Users\\L&I Legal\\Desktop\\" + excel_file_name + ".xlsx"
     # column to read
     column = "I"  # suppose it is under "A"
     columnb = "G"
@@ -56,12 +54,8 @@ while loop_variable == 1:
         number = worksheet[cell].value
         cell = "{}{}".format(columnb, length + 1)
         message = worksheet[cell].value
-
-
         service.send_message(number, message)
         number_of_send_sms += 1
-
-
 
         print("Sms sent to " + str(number_of_send_sms) + " persons")
         sleep(9)

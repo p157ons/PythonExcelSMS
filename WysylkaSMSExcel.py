@@ -21,7 +21,7 @@ was_accepted = session.request_authorization()
 print("Status łączności True")  # True if accepted
 service = MessagingService(session)
 
-#service.send_message("+48790342434", "HELLO WORLD")
+#service.send_message("+48790342432211", "HELLO WORLD")
 
 powtorz = 1
 while powtorz == 1:

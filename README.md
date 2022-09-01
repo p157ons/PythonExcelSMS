@@ -2,11 +2,17 @@ Bulk SMS sending script using python language and AirMore app on smartphone. It 
 
 # How to start:
 ##### [PC Requirements] #####
+<pre>
 --- Python
+
 --- PIP
+</pre>
 ###### [Required python packages] #####
+<pre>
 --- pyairmore
+
 --- openpyxl
+</pre>
 
 ##### [Phone] ######
 Download AirMore App from a store (**available only on android**).

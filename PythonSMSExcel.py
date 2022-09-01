@@ -1,4 +1,5 @@
 
+import csv
 from ipaddress import IPv4Address
 from pyairmore.request import AirmoreSession
 from pyairmore.services.device import DeviceService
@@ -10,8 +11,11 @@ from tkinter import filedialog
 
 def openFile():
   filepath_function = filedialog.askopenfilename()
-  return filepath_function
-
+  if filepath_function.endswith('.xlsx') or filepath_function.endswith('.csv'):
+    return filepath_function
+  else:
+    print("Wrong File format")
+    filepath_function = filedialog.askopenfilename()
 
 set_ip = input("Set IP of Phone [Check in Airmore app] in format: 192.168.1.10: " )
 ip = IPv4Address(set_ip)  # whatever server's address is
@@ -37,22 +41,20 @@ while loop_variable == 1:
         break
     
     # column to read
-    column = "I"  # suppose it is under "A"
-    columnb = "G"
+    number_column = "I"  # suppose it is under "I"
+    message_column = "G"
     # number of cols to get
     start_row = int(input("Please set start row for excel file: "))
-    length = start_row
     end_row = int(input("Please set end row for excel file: "))
-    length_v1 = end_row
     workbook = load_workbook(filepath, read_only=True)
     worksheet = workbook.active  # we will get the active worksheet
 
 
     number_of_send_sms = 0
-    for length in range (length_v1):
-        cell = "{}{}".format(column, length + 1)
+    for start_row in range (end_row):
+        cell = "{}{}".format(number_column, start_row + 1)
         number = worksheet[cell].value
-        cell = "{}{}".format(columnb, length + 1)
+        cell = "{}{}".format(message_column, start_row + 1)
         message = worksheet[cell].value
         service.send_message(number, message)
         number_of_send_sms += 1
@@ -60,14 +62,11 @@ while loop_variable == 1:
         print("Sms sent to " + str(number_of_send_sms) + " persons")
         sleep(9)
 
-    print("Continue? Press: T ")
+    print("To end Appliction Press: T ")
     char = getch()
     print(char)
 
-    if ord(char) == 84 or ord(char) == 116 :
-        loop_variable = 1
-    else:
-
+    if ord(char) == 84 or ord(char) == 116:
         break
 
 

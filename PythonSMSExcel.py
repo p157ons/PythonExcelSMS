@@ -16,6 +16,7 @@ def openFile():
   else:
     print("Wrong File format")
     filepath_function = filedialog.askopenfilename()
+    return filepath_function
 
 set_ip = input("Set IP of Phone [Check in Airmore app] in format: 192.168.1.10: " )
 ip = IPv4Address(set_ip)  # whatever server's address is
@@ -62,7 +63,7 @@ while loop_variable == 1:
         print("Sms sent to " + str(number_of_send_sms) + " persons")
         sleep(9)
 
-    print("To end Appliction Press: T ")
+    print("Loop of bulk sms ended - To end Appliction Press: T ")
     char = getch()
     print(char)
 
